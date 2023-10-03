@@ -1,0 +1,156 @@
+.main_parent{
+
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgb(220, 212, 212);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./images/bg1.jpeg);
+
+    
+}
+
+.secondary_parent{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    background-color:grey;
+    border-radius: 35px;
+    box-shadow:10px 10px 20px rgba(0, 0, 0, 0.3);
+    
+}
+
+
+  body{
+    margin:0; 
+    padding:0; 
+    height:100%; 
+    width:100%;
+    /* overflow: hidden;  */
+}  
+
+ .first_box{
+    width: 45%;
+    height:100%;
+    background-color: rgb(47, 106, 106);
+    border-radius: 35px;
+    background-image: url(./images/hello.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.second_box{
+    width: 50%;
+    height:150%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+
+} 
+
+.search_container{
+    /* background-color: brown; */
+    margin-top: 60px;
+}
+
+.searchInput{
+    width: 300px;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+.searchInput:focus {
+    outline: none;
+  }
+
+button{
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+#a1{
+    font-size: xx-large;
+}
+#a2{
+    font-size: larger;
+}
+#cd{
+    margin-left: 55px;
+    font-size: larger;
+    padding: 22px;
+    font-family:'Courier New', Courier, monospace;
+    
+}
+#cd1{
+    margin-left: 110px;
+    font-size: larger;
+    padding: 30px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+
+@media(max-width:768px){
+    .secondary_parent{
+        flex-direction: column;
+    }
+    .first_box{
+        width: 100%;
+    }
+    .search_container{
+        text-align: center;
+        margin-top: 30px;
+
+    }
+    .searchInput{
+        width: 80%;
+        padding: 10px;
+    }
+    button{
+        width: 100px;
+        margin-top: 15px;
+    }
+    p{
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: white;
+    }
+    h5{
+        font-size: 20px;
+    color: white;
+    }
+    img{
+        max-width: 80%;
+    }
+    .p1{
+        color: black;
+    }
+    .card-group{
+        margin-left: 0;
+    }
+    .card{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .second_box{
+        height: 100px;
+    }
+    .main_parent{
+        height: 186vh;
+    }
+    #cd1{
+        margin-left: 51px;
+    }
+    
+}
+
+
+

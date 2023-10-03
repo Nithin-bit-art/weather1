@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+</head>
+
+<body>
+
+    <div class="main_parent">
+        <div class="secondary_parent">
+            <div class="first_box">
+                <div class="search_container">
+                    <input type="search" id="cname" class="searchInput" placeholder="Search..." />
+
+                    <button onclick="Search()">Search</button>
+                    <button onclick="getLocation()">LOC</button>
+                    <div id="result">
+<div id="demo"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+  
+
+
+
+           <div class="card-group" id="cd">
+               </div>
+
+              <div class="card-group" id="cd1"> 
+
+                </div>
+                
+              </div> 
+            
+
+        </div>
+    </div>
+</div>
+
+
+    
+
+</body>
+<script>
+  var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+    function Search(){
+		Place=cname.value
+		fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Place}&appid=ee77aaf56c3d7e70b711f48e0fb1378f&units=metric`).then(data=>data.json())
+		.then(outdata=>DisplayData(outdata))
+    
+    
+
+
+		function DisplayData(data){
+			Name=data.city.name
+			temperature=data.list[0].main.temp
+			humidity=data.list[0].main.humidity
+      temp1=data.list[3].main.temp
+      date1=data.list[3].dt_txt
+      humidity1=data.list[3].main.humidity
+      temp2=data.list[11].main.temp
+      date2=data.list[11].dt_txt
+      humidity2=data.list[11].main.humidity
+      temp3=data.list[19].main.temp
+      date3=data.list[19].dt_txt
+      humidity3=data.list[19].main.humidity
+      temp4=data.list[27].main.temp
+      date4=data.list[27].dt_txt
+      humidity4=data.list[27].main.humidity
+      temp5=data.list[35].main.temp
+      date5=data.list[35].dt_txt
+      humidity5=data.list[35].main.humidity
+
+			result.innerHTML=`<div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title" id="a1">${Name}</h5>
+                          <p class="card-text" id="a2">TEMP : ${temperature}°C</p>
+                          <p class="card-text" id="a2"><small class="text-body-secondary">HUMIDITY : ${humidity}</small></p>
+                        </div>
+                      </div>
+                      
+                      `
+				cd.innerHTML=`  <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${date1}</h5>
+                    <p class="card-text">TEMP : ${temp1}°C</p>
+                    <p class="card-text"><small class="text-body-secondary">HUMIDITY : ${humidity1}</small></p>
+                  </div>
+                  </div>
+                  <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${date2}</h5>
+                    <p class="card-text ">TEMP : ${temp2}°C</p>
+                    <p class="card-text"><small class="text-body-secondary">HUMIDITY : ${humidity2}</small></p>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${date3}</h5>
+                    <p class="card-text">TEMP : ${temp3}°C</p>
+                    <p class="card-text"><small class="text-body-secondary">HUMIDITY : ${humidity3}</small></p>
+                  </div>
+                </div>
+                </div>
+                `
+                cd1.innerHTML=`<div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${date4}</h5>
+                    <p class="card-text">TEMP : ${temp4}°C</p>
+                    <p class="card-text"><small class="text-body-secondary">HUMIDITY : ${humidity4}</small></p>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${date5}</h5>
+                    <p class="card-text">TEMP : ${temp5}°C</p>
+                    <p class="card-text"><small class="text-body-secondary">HUMIDITY : ${humidity5}</small></p>
+                  </div>
+                </div>`
+		}
+   
+	}
+	
+</script>
+</script>
+
+</html>
